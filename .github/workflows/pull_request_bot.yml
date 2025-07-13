@@ -1,0 +1,31 @@
+name: 🤖 PR Comment Bot
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comenta regras no PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `
+👋 Ei! Obrigada por abrir um PR 💛
+
+Por favor, certifique-se de seguir nossa checklist:
+
+✅ Código testado  
+✅ PR pequeno e claro  
+✅ Visual conforme Figma  
+✅ Tarefa marcada no Notion
+
+Se estiver tudo certo, mande ver no merge! 🚀
+              `
+            })
