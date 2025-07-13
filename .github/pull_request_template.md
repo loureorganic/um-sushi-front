@@ -4,7 +4,7 @@
 - [ ] A branch está atualizada com `develop`
 - [ ] Foram adicionados testes (se aplicável)
 - [ ] O visual está conforme o Figma
-- [ ] O PR foi atribuído a pelo menos 1 revisor
+- [ ] O PR foi atribuído a pelo menos 2 revisores
 
 ---
 
