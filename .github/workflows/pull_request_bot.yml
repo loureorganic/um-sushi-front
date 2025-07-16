@@ -30,9 +30,9 @@ jobs:
 
             let erros = [];
 
-            // Verifica se todas as seções obrigatórias existem e têm conteúdo
+            // Regex melhorada: captura tudo até a próxima seção ou fim do body
             secoesObrigatorias.forEach(secao => {
-              const regex = new RegExp(`${secao}\\s*\\n+([^#]*)`, 'i');
+              const regex = new RegExp(`${secao}\\s*\\n+([\\s\\S]*?)(?=\\n##|$)`, 'i');
               const match = body.match(regex);
               if (!match || !match[1].trim()) {
                 erros.push(`❌ A seção "${secao}" está vazia ou ausente.`);
