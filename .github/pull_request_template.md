@@ -10,7 +10,7 @@
 
 ## 📝 Descrição
 
-<!-- Descreva brevemente o que foi feito -->
+<!-- Descreva brevemente o que foi feito no PR-->
 
 ---
 
