@@ -17,7 +17,7 @@ export const products = [
   },
   {
     id: 3,
-    name: "Joe Especial",
+    name: "Joe Especialk",
     description: "Joe com molho tare e gergelim",
     price: 22.0,
     image: "/images/joe-especial.jpg",
