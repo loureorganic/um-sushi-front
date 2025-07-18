@@ -9,6 +9,7 @@ import { products } from '@/app/data/products'
 
 export default function HomePage() {
   const [cartItems, setCartItems] = useState<any[]>([])
+  const [isCartOpen, setIsCartOpen] = useState(false)
 
   const handleAdd = (productId: number) => {
     const product = products.find((p) => p.id === productId)
@@ -51,7 +52,7 @@ export default function HomePage() {
 
   return (
     <main className="bg-gray-50 min-h-screen">
-      <Sidebar />
+      <Sidebar onCartClick={() => setIsCartOpen(true)} />
       <Header />
       <ProductList products={products} onAdd={handleAdd} />
       <Cart
@@ -59,6 +60,8 @@ export default function HomePage() {
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
         onRemove={handleRemove}
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
       />
     </main>
   )
