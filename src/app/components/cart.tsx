@@ -32,7 +32,7 @@ export default function Cart({ items, onIncrement, onDecrement, onRemove }: Prop
           <ul className="space-y-4 overflow-y-auto max-h-[70vh]">
             {items.map((item) => (
               <li key={item.id} className="flex gap-4 items-center">
-                <img src={item.image} alt={item.name} className="w-14 h-14 rounded object-cover" />
+                <img src={item.image} alt={item.name} className="w-14 h-14 rounded-lg object-cover" />
                 <div className="flex-1">
                   <p className="font-medium text-sm">{item.name}</p>
                   <p className="text-xs text-gray-500">R$ {item.price.toFixed(2)}</p>
@@ -44,9 +44,9 @@ export default function Cart({ items, onIncrement, onDecrement, onRemove }: Prop
                 </div>
                 <button
                   onClick={() => onRemove(item.id)}
-                  className="text-red-500 text-sm hover:underline"
+                  className="text-gray-500 text-sm hover:underline hover:text-red-500"
                 >
-                  🗑️
+                  <span className="material-symbols-outlined">delete</span>
                 </button>
               </li>
             ))}

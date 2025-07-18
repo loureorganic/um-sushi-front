@@ -15,7 +15,7 @@ export default function Header() {
         <input
           type="text"
           placeholder="Buscar produto..."
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-800"
         />
       </div>
 
