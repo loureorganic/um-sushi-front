@@ -11,6 +11,7 @@ import { fetchMenu } from '@/app/services/api'
 export default function HomePage() {
   const [products, setProducts] = useState<Product[]>([])
   const [cartItems, setCartItems] = useState<(Product & { quantity: number })[]>([])
+  const [isCartOpen, setIsCartOpen] = useState(false)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -64,7 +65,7 @@ export default function HomePage() {
 
   return (
     <main className="bg-gray-50 min-h-screen">
-      <Sidebar />
+      <Sidebar onCartClick={() => setIsCartOpen(true)} />
       <Header />
       {loading ? (
         <p className="p-4">Carregando produtos...</p>
@@ -76,6 +77,8 @@ export default function HomePage() {
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
         onRemove={handleRemove}
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
       />
     </main>
   )

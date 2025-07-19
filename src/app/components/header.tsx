@@ -12,21 +12,23 @@ export default function Header() {
       </div>
 
       {/* Barra de busca */}
-      <div className="flex-1 max-w-xl mx-6">
+      <div className="flex-1 max-w-xl mx-6 flex-shrink-0">
         <input
           type="text"
           placeholder="Buscar produto..."
-          className="w-full px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 bg-white dark:bg-zinc-800 dark:text-white dark:placeholder-gray-400"
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-800"
         />
       </div>
 
-      {/* Ícones */}
-      <div className="flex gap-4">
-        <button type="button" aria-label="Notificações" title="Notificações">
-          🔔
+      {/* Ícones do Figma vão aqui */}
+      <div className="flex gap-4 text-gray-600">
+        <button>
+          {/* ícone de notificação */}
+          <span className="material-symbols-outlined">notifications_unread</span>
         </button>
-        <button type="button" aria-label="Perfil do usuário" title="Perfil do usuário">
-          👤
+        <button>
+          {/* ícone de usuário ou configurações */}
+          <span className="material-symbols-outlined">person</span>
         </button>
       </div>
     </header>

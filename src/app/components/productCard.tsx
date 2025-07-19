@@ -28,7 +28,7 @@ export default function ProductCard({
 
         <div className="flex items-center justify-between mt-2">
           {/* Estrelas */}
-          <div className="text-yellow-500 text-sm">
+          <div className="text-yellow-500 text-md">
             {'★'.repeat(rating)}{'☆'.repeat(5 - rating)}
           </div>
 
@@ -39,9 +39,9 @@ export default function ProductCard({
         {/* Botão */}
         <button
           onClick={() => onAdd(id)}
-          className="mt-3 bg-red-500 hover:bg-red-600 text-white text-sm py-2 rounded-md"
+          className="mt-3 bg-red-500 hover:bg-red-600 text-white text-lg py-2 rounded-md flex justify-between p-5"
         >
-          + Adicionar
+           Adicionar<span className="material-symbols-outlined">add</span>
         </button>
       </div>
     </div>

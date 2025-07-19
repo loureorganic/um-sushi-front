@@ -6,9 +6,11 @@ type CartItem = {
   image?: string
 }
 
-type Props = {
+type CartItemProps = {
   items: CartItem[]
   onIncrement: (id: number) => void
   onDecrement: (id: number) => void
   onRemove: (id: number) => void
+  onClose: () => void
+  isOpen: boolean
 }
