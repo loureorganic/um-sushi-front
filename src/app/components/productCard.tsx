@@ -1,16 +1,7 @@
 'use client'
 
 import React from 'react'
-
-type Product = {
-  id: number
-  name: string
-  description: string
-  price: number
-  image: string
-  rating?: number
-  onAdd: (productId: number) => void
-}
+import { ProductCardProps } from '@/app/models/productCard'
 
 export default function ProductCard({
   id,
@@ -20,14 +11,16 @@ export default function ProductCard({
   image,
   rating = 5,
   onAdd
-}: Product) {
+}: ProductCardProps) {
   return (
     <div className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col justify-between">
-      <img
-        src={image}
-        alt={name}
-        className="w-full h-40 object-cover"
-      />
+      {image && (
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-40 object-cover"
+        />
+      )}
 
       <div className="p-4 flex flex-col gap-2">
         <h2 className="text-lg font-semibold text-gray-800">{name}</h2>

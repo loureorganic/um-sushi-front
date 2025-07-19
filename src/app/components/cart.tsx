@@ -3,20 +3,6 @@
 import React from 'react'
 import QuantityControl from './quantityControl'
 
-type CartItem = {
-  id: number
-  name: string
-  price: number
-  quantity: number
-  image: string
-}
-
-type Props = {
-  items: CartItem[]
-  onIncrement: (id: number) => void
-  onDecrement: (id: number) => void
-  onRemove: (id: number) => void
-}
 
 export default function Cart({ items, onIncrement, onDecrement, onRemove }: Props) {
   const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0)
