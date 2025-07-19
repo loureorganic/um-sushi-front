@@ -11,7 +11,7 @@ import { fetchMenu } from '@/app/services/api'
 export default function HomePage() {
   const [products, setProducts] = useState<Product[]>([])
   const [cartItems, setCartItems] = useState<(Product & { quantity: number })[]>([])
-  const [isCartOpen, setIsCartOpen] = useState(false)
+  const [isCartOpen, setIsCartOpen] = useState(true)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -23,6 +23,11 @@ export default function HomePage() {
       })
       .finally(() => setLoading(false))
   }, [])
+
+  useEffect(() => {
+    console.log('Carrinho:', cartItems)
+  }, [cartItems])
+
 
   const handleAdd = (productId: number) => {
     const product = products.find((p) => p.id === productId)
@@ -37,7 +42,9 @@ export default function HomePage() {
       }
       return [...prev, { ...product, quantity: 1 }]
     })
+    setIsCartOpen(true)
   }
+
 
   const handleIncrement = (productId: number) => {
     setCartItems((prev) =>
