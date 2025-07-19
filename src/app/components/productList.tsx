@@ -2,22 +2,9 @@
 
 import React from 'react'
 import ProductCard from './productCard'
+import { ProductListProps } from '@/app/models/productList'
 
-type Product = {
-  id: number
-  name: string
-  description: string
-  price: number
-  image: string
-  rating?: number
-}
-
-type Props = {
-  products: Product[]
-  onAdd: (productId: number) => void
-}
-
-export default function ProductList({ products, onAdd }: Props) {
+export default function ProductList({ products, onAdd }: ProductListProps) {
   return (
     <section className="p-4 pt-24 md:ml-20 md:pt-24 sm: pb-20">
 

@@ -1,15 +1,33 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Sidebar from '@/app/components/sidebar'
 import Header from '@/app/components/header'
 import ProductList from '@/app/components/productList'
 import Cart from '@/app/components/cart'
-import { products } from '@/app/data/products'
+import { Product } from '@/app/models/product'
+import { fetchMenu } from '@/app/services/api'
 
 export default function HomePage() {
-  const [cartItems, setCartItems] = useState<any[]>([])
-  const [isCartOpen, setIsCartOpen] = useState(false)
+  const [products, setProducts] = useState<Product[]>([])
+  const [cartItems, setCartItems] = useState<(Product & { quantity: number })[]>([])
+  const [isCartOpen, setIsCartOpen] = useState(true)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetchMenu()
+      .then(setProducts)
+      .catch((error: unknown) => {
+        console.error('Erro ao buscar produtos:', error)
+        setProducts([])
+      })
+      .finally(() => setLoading(false))
+  }, [])
+
+  useEffect(() => {
+    console.log('Carrinho:', cartItems)
+  }, [cartItems])
+
 
   const handleAdd = (productId: number) => {
     const product = products.find((p) => p.id === productId)
@@ -24,7 +42,9 @@ export default function HomePage() {
       }
       return [...prev, { ...product, quantity: 1 }]
     })
+    setIsCartOpen(true)
   }
+
 
   const handleIncrement = (productId: number) => {
     setCartItems((prev) =>
@@ -54,7 +74,11 @@ export default function HomePage() {
     <main className="bg-gray-50 min-h-screen">
       <Sidebar onCartClick={() => setIsCartOpen(true)} />
       <Header />
-      <ProductList products={products} onAdd={handleAdd} />
+      {loading ? (
+        <p className="p-4">Carregando produtos...</p>
+      ) : (
+        <ProductList products={products} onAdd={handleAdd} />
+      )}
       <Cart
         items={cartItems}
         onIncrement={handleIncrement}

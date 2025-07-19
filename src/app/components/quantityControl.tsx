@@ -1,14 +1,10 @@
 'use client'
 
 import React from 'react'
+import { QuantityControlProps } from '@/app/models/quantityControl'
 
-type Props = {
-  quantity: number
-  onIncrement: () => void
-  onDecrement: () => void
-}
 
-export default function QuantityControl({ quantity, onIncrement, onDecrement }: Props) {
+export default function QuantityControl({ quantity, onIncrement, onDecrement }: QuantityControlProps) {
   return (
     <div className="flex items-center gap-2 mt-2">
       <button
