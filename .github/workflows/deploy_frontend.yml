@@ -23,7 +23,7 @@ jobs:
           
       - name: Build
         working-directory: ./UmSushi-Front
-        run: npm run build
+        run: next build
         
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
