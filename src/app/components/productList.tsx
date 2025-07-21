@@ -2,24 +2,12 @@
 
 import React from 'react'
 import ProductCard from './productCard'
+import { ProductListProps } from '@/app/models/productList'
 
-type Product = {
-  id: number
-  name: string
-  description: string
-  price: number
-  image: string
-  rating?: number
-}
-
-type Props = {
-  products: Product[]
-  onAdd: (productId: number) => void
-}
-
-export default function ProductList({ products, onAdd }: Props) {
+export default function ProductList({ products, onAdd }: ProductListProps) {
   return (
-    <section className="ml-20 mt-20 p-6">
+    <section className="p-4 pt-24 md:ml-20 md:pt-24 sm: pb-20">
+
       <h1 className="text-2xl font-bold mb-6 text-gray-800">Cardápio Especial</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
