@@ -29,7 +29,7 @@ describe("Cart Component", () => {
         onDecrement={vi.fn()}
         onRemove={vi.fn()}
         onClose={vi.fn()}
-        isOpen
+        isOpen={false}
       />
     );
 
