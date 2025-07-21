@@ -4,9 +4,10 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <header className="md:w-[calc(100vw-80px)] sm:w-full h-20 bg-white shadow-sm flex items-center justify-between px-6 fixed top-0 z-40 md:left-20 left-0">
+    <header className="w-full h-20 bg-white dark:bg-zinc-900 shadow-sm flex items-center justify-between px-6 fixed top-0 z-40 lg:left-20">
+      
       {/* Logo */}
-      <div className="text-2xl font-bold text-gray-800">
+      <div className="text-2xl font-bold text-gray-800 dark:text-white">
         <span className="text-red-500">Um</span>Sushi
       </div>
 
