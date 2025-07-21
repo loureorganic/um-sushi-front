@@ -6,7 +6,7 @@ type CartItem = {
   image?: string
 }
 
-type CartItemProps = {
+export type CartItemProps = {
   items: CartItem[]
   onIncrement: (id: number) => void
   onDecrement: (id: number) => void

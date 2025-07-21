@@ -2,6 +2,7 @@
 
 import React from "react";
 import QuantityControl from "./quantityControl";
+import { CartItemProps } from "../models/cartItem";
 
 
 export default function Cart({ items, onIncrement, onDecrement, onRemove, onClose, isOpen }: CartItemProps) {
