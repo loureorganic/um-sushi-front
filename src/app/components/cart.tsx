@@ -40,6 +40,7 @@ export default function Cart({ items, onIncrement, onDecrement, onRemove, onClos
               <button
                 onClick={() => onRemove(item.id)}
                 className="text-gray-500 text-sm hover:underline hover:text-red-500"
+                data-testid="delete-button"
               >
                 <span className="material-symbols-outlined">delete</span>
               </button>

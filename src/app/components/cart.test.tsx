@@ -28,6 +28,8 @@ describe("Cart Component", () => {
         onIncrement={vi.fn()}
         onDecrement={vi.fn()}
         onRemove={vi.fn()}
+        onClose={vi.fn()}
+        isOpen
       />
     );
 
@@ -43,6 +45,8 @@ describe("Cart Component", () => {
           onIncrement={vi.fn()}
           onDecrement={vi.fn()}
           onRemove={vi.fn()}
+          onClose={vi.fn()}
+          isOpen
         />
       );
 
@@ -57,6 +61,8 @@ describe("Cart Component", () => {
         onIncrement={vi.fn()}
         onDecrement={vi.fn()}
         onRemove={vi.fn()}
+        onClose={vi.fn()}
+        isOpen
       />
     );
 
@@ -79,6 +85,8 @@ describe("Cart Component", () => {
         onIncrement={onIncrement}
         onDecrement={onDecrement}
         onRemove={onRemove}
+        onClose={vi.fn()}
+        isOpen
       />
     );
 
@@ -88,7 +96,7 @@ describe("Cart Component", () => {
     const decrementButtons = screen.getAllByTestId(
       "quantity-control-decrement-button"
     );
-    const removeButtons = screen.getAllByText("🗑️");
+    const removeButtons = screen.getAllByTestId("delete-button");
 
     fireEvent.click(incrementButtons[0]);
     fireEvent.click(decrementButtons[0]);
