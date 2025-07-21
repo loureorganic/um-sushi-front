@@ -10,15 +10,15 @@ export default function Cart({ items, onIncrement, onDecrement, onRemove, onClos
 
   return (
     <aside
-      className={`h-screen bg-white fixed right-0 top-0 shadow-lg flex flex-col justify-between z-50 transition-all duration-300 ${
+      className={`h-screen bg-white dark:bg-zinc-900 fixed right-0 top-0 shadow-lg flex flex-col justify-between z-50 transition-all duration-300 ${
         isOpen ? 'w-80 p-6' : 'w-0 p-0 overflow-hidden'
       }`}
     >
       <div className={`${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'} transition-opacity duration-200`}>
         <div className="flex justify-between">
-          <h2 className="text-xl font-bold text-gray-800">Seu pedido</h2>
+          <h2 className="text-xl font-bold text-gray-800 dark:text-white">Seu pedido</h2>
           <button onClick={onClose} className="text-gray-500 hover:text-red-500">
-            <span className="material-symbols-outlined text-2xl">close</span>
+            <span className="material-symbols-outlined text-2xl dark:text-white">close</span>
           </button>
         </div>
 
@@ -27,7 +27,7 @@ export default function Cart({ items, onIncrement, onDecrement, onRemove, onClos
       ) : (
         <ul className="space-y-4 overflow-y-auto max-h-[70vh]">
           {items.map((item) => (
-            <li key={item.id} className="flex gap-4 items-center text-gray-900">
+            <li key={item.id} className="flex gap-4 items-center text-gray-900 dark:text-white">
               <img src={item.image} alt={item.name} className="w-14 h-14 rounded-lg object-cover" />
               <div className="flex-1">
                 <p className="font-medium text-sm">{item.name}</p>
@@ -53,7 +53,7 @@ export default function Cart({ items, onIncrement, onDecrement, onRemove, onClos
 
 
       <div className="pt-4 border-t mt-6">
-        <div className="flex justify-between font-semibold text-lg text-gray-800">
+        <div className="flex justify-between font-semibold text-lg text-gray-800 dark:text-white">
           <span>Total:</span>
           <span className="text-red-500">R$ {total.toFixed(2)}</span>
         </div>
