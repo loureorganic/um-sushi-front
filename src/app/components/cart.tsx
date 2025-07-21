@@ -1,7 +1,8 @@
-'use client'
+"use client";
 
-import React from 'react'
-import QuantityControl from './quantityControl'
+import React from "react";
+import QuantityControl from "./quantityControl";
+import { CartItemProps } from "../models/cartItem";
 
 
 export default function Cart({ items, onIncrement, onDecrement, onRemove, onClose, isOpen }: CartItemProps) {
@@ -40,6 +41,7 @@ export default function Cart({ items, onIncrement, onDecrement, onRemove, onClos
               <button
                 onClick={() => onRemove(item.id)}
                 className="text-gray-500 text-sm hover:underline hover:text-red-500"
+                data-testid="delete-button"
               >
                 <span className="material-symbols-outlined">delete</span>
               </button>
@@ -60,5 +62,5 @@ export default function Cart({ items, onIncrement, onDecrement, onRemove, onClos
         </button>
       </div>
     </aside>
-  )
+  );
 }
