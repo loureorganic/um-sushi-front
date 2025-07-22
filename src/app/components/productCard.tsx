@@ -13,7 +13,7 @@ export default function ProductCard({
   onAdd
 }: ProductCardProps) {
   return (
-    <div className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col justify-between">
+    <div className="bg-white rounded-xl shadow-sm dark:bg-zinc-900 overflow-hidden flex flex-col justify-between">
       {image && (
         <img
           src={image}
@@ -23,9 +23,9 @@ export default function ProductCard({
       )}
 
       <div className="p-4 flex flex-col gap-2">
-        <h2 className="text-lg font-semibold text-gray-800">{name}</h2>
+        <h2 className="text-lg font-semibold text-gray-800 dark:text-white">{name}</h2>
         {description && (
-          <p className="text-sm text-gray-500 leading-tight">{description}</p>
+          <p className="text-sm text-gray-500 leading-tight dark:text-white">{description}</p>
         )}
         <div className="flex items-center justify-between mt-2">
           {/* Estrelas */}

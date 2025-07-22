@@ -13,7 +13,7 @@ export default function Sidebar({ onCartClick }: SidebarProps) {
                  md:flex-col md:justify-start
                  md:w-20 md:h-screen md:top-0 md:left-0
                  w-full h-16 bottom-0
-                 py-2 md:py-6"
+                 py-2 md:py-6 dark:text-white dark:bg-zinc-900"
     >
       {/* Logo (só aparece no desktop) */}
       <div className="hidden md:flex md:mb-10">
@@ -23,7 +23,7 @@ export default function Sidebar({ onCartClick }: SidebarProps) {
       </div>
 
       {/* Menu de navegação */}
-      <nav className="flex md:flex-col gap-4 text-gray-500 text-2xl">
+      <nav className="flex md:flex-col gap-4 text-gray-500 text-2xl dark:text-white">
         <button className="hover:text-red-500" title="Início">
           <span className="material-symbols-outlined">home</span>
         </button>

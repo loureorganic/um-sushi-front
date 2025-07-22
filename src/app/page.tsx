@@ -71,7 +71,7 @@ export default function HomePage() {
   }
 
   return (
-    <main className="bg-gray-50 min-h-screen">
+    <main className="bg-gray-50 min-h-screen dark:bg-black">
       <Sidebar onCartClick={() => setIsCartOpen(true)} />
       <Header />
       {loading ? (
