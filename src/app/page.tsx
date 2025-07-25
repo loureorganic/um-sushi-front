@@ -13,6 +13,7 @@ export default function HomePage() {
   const [cartItems, setCartItems] = useState<(Product & { quantity: number })[]>([])
   const [isCartOpen, setIsCartOpen] = useState(true)
   const [loading, setLoading] = useState(true)
+  const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
     fetchMenu()
@@ -70,14 +71,19 @@ export default function HomePage() {
     setCartItems((prev) => prev.filter((item) => item.id !== productId))
   }
 
+  // 🔍 Filter products based on search term
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
   return (
     <main className="bg-gray-50 min-h-screen dark:bg-black">
       <Sidebar onCartClick={() => setIsCartOpen(true)} />
-      <Header />
+      <Header searchTerm={searchTerm} onSearchChange={setSearchTerm} />
       {loading ? (
         <p className="p-4">Carregando produtos...</p>
       ) : (
-        <ProductList products={products} onAdd={handleAdd} />
+        <ProductList products={filteredProducts} onAdd={handleAdd} />
       )}
       <Cart
         items={cartItems}
