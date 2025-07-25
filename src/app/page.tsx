@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { useState, useEffect } from 'react'
 import Sidebar from '@/app/components/sidebar'
 import Header from '@/app/components/header'
